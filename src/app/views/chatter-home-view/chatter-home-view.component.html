@@ -1,0 +1,15 @@
+<app-page-header [title]="title"></app-page-header>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <mat-card>
+            sdasdasdsadsadasdasdasdasdasdasdasdasdsadas
+        </mat-card>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <ul>
+            <li *ngFor="let group of groups">
+              {{group.id}} / {{group.name}}
+            </li>
+          </ul>
+    </mat-sidenav-content>
+</mat-sidenav-container>
