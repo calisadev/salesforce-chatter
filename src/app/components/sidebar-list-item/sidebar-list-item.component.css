@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: left;
     align-items: stretch;
+    border-radius: 5px;
 }
 .sidebar-list-item-photo {
     height:60px;

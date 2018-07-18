@@ -12,7 +12,6 @@ export class SidebarListItemComponent implements OnInit {
     constructor() { }
 
     ngOnInit () {
-        console.log(this.group);
     }
 
 }

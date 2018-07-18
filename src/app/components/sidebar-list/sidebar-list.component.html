@@ -1,4 +1,4 @@
 <mat-card class="sidebar-list">
-    <app-sidebar-list-item *ngFor="let group of groups" [group]="group">
+    <app-sidebar-list-item *ngFor="let group of groups" [group]="group" (click)="onGroupClicked(group.id)">
     </app-sidebar-list-item>
 </mat-card>

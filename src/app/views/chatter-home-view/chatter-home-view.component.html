@@ -1,10 +1,11 @@
 <app-page-header [title]="title"></app-page-header>
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav mode="side" opened>
-        <app-sidebar-list [groups]="groups">
+        <app-sidebar-list [groups]="groups" (groupClickEvent)="onGroupSelected($event)">
         </app-sidebar-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        
+        <app-chat-view [feeds]="feeds" >
+        </app-chat-view>
     </mat-sidenav-content>
 </mat-sidenav-container>

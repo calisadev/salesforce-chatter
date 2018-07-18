@@ -24,6 +24,8 @@ import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
 import { SidebarListItemComponent } from './components/sidebar-list-item/sidebar-list-item.component';
+import { ChatViewComponent } from './components/chat-view/chat-view.component';
+import { ChatViewItemComponent } from './components/chat-view-item/chat-view-item.component';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,9 @@ import { SidebarListItemComponent } from './components/sidebar-list-item/sidebar
         MainMenuComponent,
         PageHeaderComponent,
         SidebarListComponent,
-        SidebarListItemComponent
+        SidebarListItemComponent,
+        ChatViewComponent,
+        ChatViewItemComponent
     ],
     imports: [
         BrowserModule,
