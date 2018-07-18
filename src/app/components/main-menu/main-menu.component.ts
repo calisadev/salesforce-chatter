@@ -8,7 +8,7 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 })
 export class MainMenuComponent implements OnInit {
 
-    private isLoggedIn : boolean = false;
+    public isLoggedIn : boolean = false;
 
     constructor (private authenticationService: AuthenticationService) { }
     

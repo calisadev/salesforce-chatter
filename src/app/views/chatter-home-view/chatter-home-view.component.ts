@@ -10,7 +10,7 @@ export class ChatterHomeViewComponent implements OnInit {
     public title: string;
 
     constructor (private groupService: GroupService) {}
-    private groups: Group[];
+    public groups: Group[];
 
     public ngOnInit (): void {
         this.title = "Home";

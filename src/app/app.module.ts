@@ -22,6 +22,8 @@ import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFo
     MatSidenavModule } from '@angular/material';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
+import { SidebarListItemComponent } from './components/sidebar-list-item/sidebar-list-item.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +35,9 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
         ChatterUsersViewComponent,
         ChatterDirectMessagesViewComponent,
         MainMenuComponent,
-        PageHeaderComponent
+        PageHeaderComponent,
+        SidebarListComponent,
+        SidebarListItemComponent
     ],
     imports: [
         BrowserModule,

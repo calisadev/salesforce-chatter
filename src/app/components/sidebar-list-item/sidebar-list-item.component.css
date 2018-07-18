@@ -1,0 +1,22 @@
+.sidebar-list-item {
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: stretch;
+}
+.sidebar-list-item-photo {
+    height:60px;
+    border-radius: 50%;
+}
+.sidebar-list-item-details {
+    margin-left: 10px;
+}
+.sidebar-list-item-details p {
+    margin: 0px;
+}
+.sidebar-list-item-details h4 {
+    margin: 0px;
+}
