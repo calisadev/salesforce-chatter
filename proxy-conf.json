@@ -1,0 +1,6 @@
+{
+    "/services": {
+        "target": "https://test.salesforce.com",
+        "secure": false
+    }
+}
