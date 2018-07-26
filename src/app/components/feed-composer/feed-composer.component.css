@@ -1,0 +1,20 @@
+.feed-composer-container {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.feed-composer-form {
+    width: 100%;
+}
+.feed-composer-textarea {
+    resize: none;
+}
+/deep/ .feed-composer-container .mat-form-field-wrapper {
+    padding-bottom: 0px;
+    margin: 0px;
+}
+.feed-composer-buttons {
+    width: 100%;
+    text-align: right;
+    margin-top: 5px;
+}

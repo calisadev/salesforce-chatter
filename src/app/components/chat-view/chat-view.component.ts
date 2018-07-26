@@ -1,17 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Feed } from '../../salesforce/models/Feed';
+import { Message } from '../../salesforce/models/Message';
 
 @Component({
-    selector: 'app-chat-view',
-    templateUrl: './chat-view.component.html',
-    styleUrls: ['./chat-view.component.css']
+  selector: 'app-chat-view',
+  templateUrl: './chat-view.component.html',
+  styleUrls: ['./chat-view.component.css']
 })
 export class ChatViewComponent implements OnInit {
-    @Input() feeds : Feed[];
-    
-    constructor() { }
+  @Input() messages: Message[];
+  constructor() { }
 
-    ngOnInit() {
-         
-    }
+  ngOnInit() {
+  }
+
 }

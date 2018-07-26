@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatViewComponent } from './chat-view.component';
+import { SidebarGroupItemComponent } from './sidebar-group-item.component';
 
-describe('ChatViewComponent', () => {
-  let component: ChatViewComponent;
-  let fixture: ComponentFixture<ChatViewComponent>;
+describe('SidebarGroupItemComponent', () => {
+  let component: SidebarGroupItemComponent;
+  let fixture: ComponentFixture<SidebarGroupItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatViewComponent ]
+      declarations: [ SidebarGroupItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChatViewComponent);
+    fixture = TestBed.createComponent(SidebarGroupItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

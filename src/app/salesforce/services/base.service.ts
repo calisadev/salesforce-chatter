@@ -19,7 +19,7 @@ export class BaseService {
     public callPost<T> (resourcePath: string, data: any): Observable<any> {
         const headers = this.buildHeaders();
         const url = this.buildUrl(resourcePath);
-        return this.http.post<T>(url, headers, data);
+        return this.http.post<T>(url, data, headers);
     }
 
     private buildHeaders (): any {

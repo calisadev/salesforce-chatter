@@ -4,8 +4,12 @@
         <app-sidebar-list [groups]="groups" (groupClickEvent)="onGroupSelected($event)">
         </app-sidebar-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-        <app-chat-view [feeds]="feeds" >
-        </app-chat-view>
+    <mat-sidenav-content class="sidenav-content-container">
+        <app-feed-composer (feedPostEvent)="onFeedPost($event)">
+        </app-feed-composer>
+        <app-feed-view [feeds]="feeds" (commentPostEvent)="onCommentPostEvent($event)">
+        </app-feed-view>
     </mat-sidenav-content>
+    <mat-sidenav position="end" class="left-sidebar" mode="side" closed>
+    </mat-sidenav>
 </mat-sidenav-container>

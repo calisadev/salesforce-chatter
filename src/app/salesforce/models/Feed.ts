@@ -1,9 +1,11 @@
 import { User } from "./User";
-import { FeedBody } from "./FeedBody";
+import { MessageBody } from "./MessageBody";
 import { FeedCapability } from "./FeedCapability";
 
 export interface Feed { 
+    id: string,
     actor: User,
-    body: FeedBody,
-    capabilities: FeedCapability
+    body: MessageBody,
+    capabilities: FeedCapability,
+    newComment: string
 }

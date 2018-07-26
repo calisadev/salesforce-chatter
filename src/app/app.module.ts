@@ -19,13 +19,16 @@ import { FormsModule } from '@angular/forms';
 
 import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
     MatPaginatorModule, MatButtonModule, MatGridListModule, MatCheckboxModule, MatIconModule, MatChipsModule, MatTableModule,
-    MatSidenavModule } from '@angular/material';
+    MatSidenavModule, MatExpansionModule } from '@angular/material';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
-import { SidebarListItemComponent } from './components/sidebar-list-item/sidebar-list-item.component';
 import { ChatViewComponent } from './components/chat-view/chat-view.component';
-import { ChatViewItemComponent } from './components/chat-view-item/chat-view-item.component';
+import { FeedViewComponent } from './components/feed-view/feed-view.component';
+import { FeedComposerComponent } from './components/feed-composer/feed-composer.component';
+import { SidebarGroupItemComponent } from './components/sidebar-group-item/sidebar-group-item.component';
+import { SidebarConversationItemComponent } from './components/sidebar-conversation-item/sidebar-conversation-item.component';
+import { ChatComposerComponent } from './components/chat-composer/chat-composer.component';
 
 @NgModule({
     declarations: [
@@ -39,9 +42,12 @@ import { ChatViewItemComponent } from './components/chat-view-item/chat-view-ite
         MainMenuComponent,
         PageHeaderComponent,
         SidebarListComponent,
-        SidebarListItemComponent,
         ChatViewComponent,
-        ChatViewItemComponent
+        FeedViewComponent,
+        FeedComposerComponent,
+        SidebarGroupItemComponent,
+        SidebarConversationItemComponent,
+        ChatComposerComponent
     ],
     imports: [
         BrowserModule,
@@ -62,7 +68,8 @@ import { ChatViewItemComponent } from './components/chat-view-item/chat-view-ite
         MatCheckboxModule,
         MatIconModule,
         MatChipsModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatExpansionModule
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]

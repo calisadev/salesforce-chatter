@@ -1,4 +1,5 @@
 import { User } from "./User";
+import { Comment } from "./Comment";
 
 export interface FeedCapability {
     chatterLikes: {
@@ -17,7 +18,7 @@ export interface FeedCapability {
     comments: {
         page: {
             total: number,
-            items: any,
+            items: Comment[],
             nextPageUrl: string,
             currentPageUrl: string,
             previousPageUrl: string

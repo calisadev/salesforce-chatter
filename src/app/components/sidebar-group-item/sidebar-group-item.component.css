@@ -1,4 +1,4 @@
-.sidebar-list-item {
+.sidebar-group-item {
     height: 60px;
     margin-bottom: 10px;
     padding: 10px;
@@ -8,16 +8,16 @@
     align-items: stretch;
     border-radius: 5px;
 }
-.sidebar-list-item-photo {
-    height:60px;
+.sidebar-group-item-photo {
+    height:50px;
     border-radius: 50%;
 }
-.sidebar-list-item-details {
+.sidebar-group-item-details {
     margin-left: 10px;
 }
-.sidebar-list-item-details p {
+.sidebar-group-item-details p {
     margin: 0px;
 }
-.sidebar-list-item-details h4 {
+.sidebar-group-item-details h4 {
     margin: 0px;
 }

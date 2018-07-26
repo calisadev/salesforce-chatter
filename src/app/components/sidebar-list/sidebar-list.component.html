@@ -1,4 +1,9 @@
 <mat-card class="sidebar-list">
-    <app-sidebar-list-item *ngFor="let group of groups" [group]="group" (click)="onGroupClicked(group.id)">
-    </app-sidebar-list-item>
+    <mat-form-field class="sidebar-list-search-form" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput>
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <app-sidebar-group-item *ngFor="let group of groups" [group]="group" (click)="onGroupClicked(group)">
+    </app-sidebar-group-item>
 </mat-card>

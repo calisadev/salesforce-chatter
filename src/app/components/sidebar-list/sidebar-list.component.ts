@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Group } from '../../salesforce/models/Group';
+import { Conversation } from '../../salesforce/models/Conversation';
 
 @Component({
     selector: 'app-sidebar-list',
@@ -8,13 +9,15 @@ import { Group } from '../../salesforce/models/Group';
 })
 export class SidebarListComponent implements OnInit {
     @Input() groups : Group[];
+    @Input() conversations : Conversation[];
     @Output() groupClickEvent: EventEmitter<any> = new EventEmitter();
+    @Output() conversationClicked: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
     public ngOnInit (): void {
     }
-    public onGroupClicked (groupId: string) {
-        this.groupClickEvent.emit(groupId);
+    public onGroupClicked (group: Group) {
+        this.groupClickEvent.emit(group);
     }
 }
