@@ -17,7 +17,7 @@
             <span class="fill-remaining-space"></span>
             <nav mat-tab-nav-bar *ngIf="isLoggedIn">
                 <button mat-button class="menu-list-button" routerLink="/logout">Log out</button>
-             </nav>
-             <img *ngIf="isLoggedIn" src="assets/user.png" height="30" >
+            </nav>
+            <img class="main-menu-avatar" *ngIf="isLoggedIn" src="{{currentUserDetails.photo.fullEmailPhotoUrl}}" height="40" >
     </mat-toolbar-row>
 </mat-toolbar>

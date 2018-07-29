@@ -8,4 +8,5 @@ export interface Message {
     sender: User;
     sentDate: string;
     sentDatetime: Date;
+    messageStyle: string;
 }   

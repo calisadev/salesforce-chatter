@@ -12,11 +12,11 @@ export class UserService {
 
     constructor (private baseService: BaseService) {}
 
-    public getUserDetails (userId: string): Observable<User[]> {
+    public getUserDetails (userId: string): Observable<User> {
         return this.baseService.callGet<User[]>('users/' + userId);
     }
 
-    public getCurrentUserDetails (): Observable<User[]> {
+    public getCurrentUserDetails (): Observable<User> {
         return this.getUserDetails('me');
     }
 }

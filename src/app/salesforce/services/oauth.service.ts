@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { AccessTokenInfo } from '../models/AccessTokenInfo';
 import { environment } from '../../../environments/environment';
+import { BaseService } from './base.service';
 
 @Injectable({
     providedIn: 'root',

@@ -7,12 +7,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ChatComposerComponent {
     public message: string;
-    @Output() feedPostEvent: EventEmitter<any> = new EventEmitter();
+    @Output() sendMessageEvent: EventEmitter<any> = new EventEmitter();
 
     constructor() { }
 
-    public onSendButtonClick () {
-        this.feedPostEvent.emit(this.message);
+    public onKeyDown (event: any) {
+        if (event.keyCode == 13) {
+            this.sendMessageEvent.emit(this.message);
+        }
     }
     public clear (): void {
         this.message = "";

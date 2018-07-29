@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Conversation } from '../../salesforce/models/Conversation';
 
 @Component({
   selector: 'app-sidebar-conversation-item',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-conversation-item.component.css']
 })
 export class SidebarConversationItemComponent implements OnInit {
-
+  @Input() conversation: Conversation;
   constructor() { }
 
   ngOnInit() {

@@ -5,10 +5,10 @@
         </app-sidebar-list>
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content-container">
+        <app-chat-view [messages]="messages" [nextPageToken]="nextPageToken" (loadMoreEvent)="onLoadMoreEvent($event)">
+        </app-chat-view>
         <app-chat-composer (sendMessageEvent)="onMessageSend($event)">
         </app-chat-composer>
-        <app-chat-view [messages]="messages" (commentPostEvent)="onCommentPostEvent($event)">
-        </app-chat-view>
     </mat-sidenav-content>
     <mat-sidenav position="end" class="left-sidebar" mode="side" closed>
     </mat-sidenav>

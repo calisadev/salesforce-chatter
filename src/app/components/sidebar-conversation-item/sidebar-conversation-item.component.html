@@ -1,3 +1,8 @@
-<p>
-  sidebar-conversation-item works!
-</p>
+<mat-card class="sidebar-conversation-item">
+  <img class="sidebar-group-item-photo" src="{{group.photo.standardEmailPhotoUrl}}">
+  <div class="sidebar-group-item-details">
+      <h4>{{group.name}}</h4>
+      <p>Owner: {{group.owner.name}}</p> 
+      <p>Member: {{group.memberCount}}</p> 
+  </div>  
+</mat-card>

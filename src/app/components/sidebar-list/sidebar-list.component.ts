@@ -20,4 +20,7 @@ export class SidebarListComponent implements OnInit {
     public onGroupClicked (group: Group) {
         this.groupClickEvent.emit(group);
     }
+    public getConversationImage (conversation: Conversation): string {
+        return conversation.members[0].photo.fullEmailPhotoUrl;
+    }
 }

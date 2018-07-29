@@ -1,1 +1,13 @@
-{{messages}}
+<div #chatContainter class="chat-view-container">
+    <div class="chat-view-item-container load-more-button" *ngIf="nextPageToken">
+        <button mat-raised-button (click)="onLoadMoreButtonClicked()">Load more...</button>
+    </div>
+    <div class="chat-view-item-container {{message.messageStyle}}" *ngFor="let message of messages">
+        <img src="{{message.sender.photo.fullEmailPhotoUrl}}" class="chat-view-user-avatar left">
+        <mat-card class="chat-view-message">
+            <h4>{{message.sender.name}}</h4>
+            <p>{{message.body.text}}</p>
+        </mat-card>
+        <img src="{{message.sender.photo.fullEmailPhotoUrl}}" class="chat-view-user-avatar right">
+    </div>
+</div>

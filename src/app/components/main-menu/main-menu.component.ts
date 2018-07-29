@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { User } from '../../salesforce/models/User';
 
 @Component({
     selector: 'app-main-menu',
@@ -9,11 +10,13 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 export class MainMenuComponent implements OnInit {
 
     public isLoggedIn : boolean = false;
+    public currentUserDetails: User;
 
     constructor (private authenticationService: AuthenticationService) { }
     
     public ngOnInit () {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
+        this.currentUserDetails = this.authenticationService.getCurrentUserDetails();
     }
 
 }

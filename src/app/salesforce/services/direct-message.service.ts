@@ -6,12 +6,13 @@ import { map } from 'rxjs/operators';
 import { ConversationDetail } from '../models/ConversationDetail';
 import { Message } from '../models/Message';
 import { User } from '../models/User';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 @Injectable({
     providedIn: 'root'
 })
 export class DirectMessageService {
-
-    constructor (private baseService: BaseService) {}
+    private currentUserId: string;
+    constructor (private baseService: BaseService, private authenticationService: AuthenticationService) {}
 
     public getMyConversations (): Observable<Conversation[]> {
         const resourcePath = 'users/me/conversations';
@@ -20,27 +21,31 @@ export class DirectMessageService {
         }));
     }
 
-    public getMessages (pageToken: string): Observable<ConversationDetail> {
-        const resourcePath = 'users/me/conversations/' + pageToken;
-        return this.baseService.callGet(resourcePath);
-    }
-
-    public getMessagesOfConversation (conversationDetail: ConversationDetail) {
-        const messages : Message[] = conversationDetail.messages.messages;
-        for (var message of messages) {
-            message.sentDatetime = new Date(message.sentDate);
+    public getConversationDetail (conversationId: string, pageToken?: string): Observable<ConversationDetail> {
+        let resourcePath = 'users/me/conversations/' + conversationId;
+        if (pageToken) {
+            resourcePath += '?page=' + pageToken;
         }
-        return messages.sort((a: Message, b: Message): number => {
-            return a.sentDatetime > b.sentDatetime ? 1 : -1;
-        });
+        return this.baseService.callGet(resourcePath).pipe(map(this.prepareConversationData.bind(this)));
     }
-
-    public sendMessage (message: string, members: User[]): Observable<Message[]> {
+    public sendMessage (message: string, members: User[]): Observable<Message> {
         const recipients = members.map((user) => { return user.id});
         const messageBody = {
             body: message,
             recipients: recipients
         }
-        return this.baseService.callPost('users/me/messages', messageBody);
+        return this.baseService.callPost('users/me/messages', messageBody).pipe(map(this.prepareMessageData.bind(this)));
+    }
+    private prepareConversationData (conversationDetail: ConversationDetail): ConversationDetail {
+        conversationDetail.messages.messages.map(this.prepareMessageData.bind(this));
+        conversationDetail.messages.messages = conversationDetail.messages.messages.sort((a: Message, b: Message): number => {
+            return a.sentDatetime > b.sentDatetime ? 1 : -1;
+        });
+        return conversationDetail;
+    }
+    private prepareMessageData (message: Message): Message {
+        message.sentDatetime = new Date(message.sentDate);
+        message.messageStyle = message.sender.id === this.authenticationService.getCurrentUserDetails().id ? 'right' : 'left';
+        return message;
     }
 }
