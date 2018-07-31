@@ -4,15 +4,8 @@
         <input matInput>
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <mat-card class="sidebar-item" *ngFor="let group of groups" (click)="onGroupClicked(group)">
-        <img class="sidebar-item-photo" src="{{group.photo.standardEmailPhotoUrl}}">
-        <div class="sidebar-item-details">
-            <h4>{{group.name}}</h4>
-            <p>Owner: {{group.owner.name}}</p> 
-            <p>Member: {{group.memberCount}}</p> 
-        </div>  
-    </mat-card>
-    <mat-card class="sidebar-item" *ngFor="let conversation of conversations" (click)="onConversationClicked(conversation)">
-        <img class="sidebar-item-photo" src="{{getConversationImage(conversation)}}">
-    </mat-card>
+    <app-sidebar-group-item *ngFor="let group of groups" [group]="group" (click)="onGroupClicked(group)" >
+    </app-sidebar-group-item>
+    <app-sidebar-conversation-item *ngFor="let conversation of conversations" [conversation]="conversation" (click)="onConversationClicked(conversation)">
+    </app-sidebar-conversation-item>
 </mat-card>

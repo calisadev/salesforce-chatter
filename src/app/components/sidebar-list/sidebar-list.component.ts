@@ -13,14 +13,18 @@ export class SidebarListComponent implements OnInit {
     @Output() groupClickEvent: EventEmitter<any> = new EventEmitter();
     @Output() conversationClicked: EventEmitter<any> = new EventEmitter();
 
+    public conversationMemberPhotoUrls : string[] = [];
+
     constructor() { }
 
     public ngOnInit (): void {
+
     }
     public onGroupClicked (group: Group) {
         this.groupClickEvent.emit(group);
     }
-    public getConversationImage (conversation: Conversation): string {
-        return conversation.members[0].photo.fullEmailPhotoUrl;
+
+    public onConversationClicked (conversation: Conversation) {
+        this.conversationClicked.emit(conversation);
     }
 }

@@ -40,6 +40,8 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
     }   
     public onConversationSelected (conversation: Conversation): void {
         this.currentConversation = conversation;
+        this.messages = [];
+        this.loadConversationDetail(this.currentConversation.id, null);
     }
     public onLoadMoreEvent (nextPageToken: string) {
         this.loadConversationDetail(this.currentConversation.id, nextPageToken);

@@ -12,12 +12,19 @@ import { AuthenticationService } from '../../services/authentication/authenticat
 })
 export class DirectMessageService {
     private currentUserId: string;
-    constructor (private baseService: BaseService, private authenticationService: AuthenticationService) {}
+    constructor (private baseService: BaseService, private authenticationService: AuthenticationService) {
+        this.currentUserId = this.authenticationService.getCurrentUserDetails().id;
+    }
 
     public getMyConversations (): Observable<Conversation[]> {
         const resourcePath = 'users/me/conversations';
         return this.baseService.callGet(resourcePath).pipe(map(res => {
-            return res.conversations;
+            return res.conversations.map((conversation: Conversation) => {
+                conversation.members.map((user: User) => {
+                    user.isCurrentUser = user.id === this.currentUserId;
+                })
+                return conversation;
+            });
         }));
     }
 
@@ -45,7 +52,7 @@ export class DirectMessageService {
     }
     private prepareMessageData (message: Message): Message {
         message.sentDatetime = new Date(message.sentDate);
-        message.messageStyle = message.sender.id === this.authenticationService.getCurrentUserDetails().id ? 'right' : 'left';
+        message.messageStyle = message.sender.id === this.currentUserId ? 'right' : 'left';
         return message;
     }
 }

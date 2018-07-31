@@ -1,8 +1,9 @@
-<mat-card class="sidebar-conversation-item">
-  <img class="sidebar-group-item-photo" src="{{group.photo.standardEmailPhotoUrl}}">
-  <div class="sidebar-group-item-details">
-      <h4>{{group.name}}</h4>
-      <p>Owner: {{group.owner.name}}</p> 
-      <p>Member: {{group.memberCount}}</p> 
-  </div>  
+<mat-card class="sidebar-conversation-item" >
+    <div class="sidebar-conversation-item-photos">
+        <img *ngFor="let photoUrl of conversationPhotoUrls" class="sidebar-conversation-item-photo size-{{conversationPhotoUrls.length}}" src="{{photoUrl}}">
+    </div>
+    
+    <div class="sidebar-conversation-item-details">
+        <h4>{{conversationName}}</h4>
+    </div>
 </mat-card>

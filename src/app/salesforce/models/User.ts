@@ -5,4 +5,5 @@ export interface User {
     id: string,
     name: string,
     photo: Photo,
+    isCurrentUser: boolean;
 }
