@@ -45,7 +45,7 @@ export class ChatterLoginViewComponent implements OnInit {
         this.authenticationService.storeTokenInfo(tokenInfo);
         this.userService.getCurrentUserDetails().subscribe((user: User) => {
             this.authenticationService.storeCurrentUserDetails(user);
-            window.location.href = '/home';
+            window.location.href = '/groups';
         });
     }
     private onLoginFailed (): void {

@@ -11,7 +11,7 @@ export class LoginRedirectGuardService implements CanActivate {
     
     public canActivate (): boolean {
         if (this.authenticationService.isLoggedIn()) {
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/groups');
             return true;
         } else {
             return true;

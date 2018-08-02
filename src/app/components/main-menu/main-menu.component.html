@@ -2,16 +2,13 @@
     <mat-toolbar-row class="main-menu-bar">
         <img src="assets/logo.png" height="30" >
             <nav mat-tab-nav-bar>
-                <button mat-button class="main-logo" routerLink="/home"><h2>Chatter</h2></button>
+                <button mat-button class="main-logo" routerLink="/groups"><h2>Chatter</h2></button>
             </nav>
             <nav mat-tab-nav-bar *ngIf="isLoggedIn">
                 <button mat-button class="menu-list-button" routerLink="/groups">Groups</button>
             </nav>
             <nav mat-tab-nav-bar *ngIf="isLoggedIn">
                 <button mat-button class="menu-list-button" routerLink="/direct-messages">Direct Messages</button>
-            </nav>
-            <nav mat-tab-nav-bar *ngIf="isLoggedIn">
-                <button mat-button class="menu-list-button" routerLink="/users">People</button>
             </nav>
 
             <span class="fill-remaining-space"></span>

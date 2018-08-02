@@ -7,11 +7,11 @@ import { FeedComposerComponent } from '../../components/feed-composer/feed-compo
 import { FeedViewComponent } from '../../components/feed-view/feed-view.component';
 import { Comment } from '../../salesforce/models/Comment';
 @Component({
-    selector: 'app-chatter-home-view',
-    templateUrl: './chatter-home-view.component.html',
-    styleUrls: ['./chatter-home-view.component.css']
+    selector: 'app-chatter-group-view',
+    templateUrl: './chatter-group-view.component.html',
+    styleUrls: ['./chatter-group-view.component.css']
 })
-export class ChatterHomeViewComponent implements OnInit {
+export class ChatterGroupViewComponent implements OnInit {
     public title: string;
     public currentGroup: Group;
     @ViewChild(FeedComposerComponent) feedComposer: FeedComposerComponent
@@ -23,7 +23,7 @@ export class ChatterHomeViewComponent implements OnInit {
     public feeds: Feed[];
 
     public ngOnInit (): void {
-        this.title = "Home";
+        this.title = "Groups";
         this.groupService.getAll().subscribe((groups: Group[]) => {
             this.groups = groups;
             this.onGroupSelected(this.groups[0]);

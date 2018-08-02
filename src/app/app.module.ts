@@ -3,14 +3,11 @@ import { NgModule } from '@angular/core';
 
 import {APP_BASE_HREF} from '@angular/common';
 import { AppComponent } from './app.component';
-import { ChatterHomeViewComponent } from './views/chatter-home-view/chatter-home-view.component';
+import { ChatterGroupViewComponent } from './views/chatter-group-view/chatter-group-view.component';
 import { ChatterLoginViewComponent } from './views/chatter-login-view/chatter-login-view.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ChatterProfileViewComponent } from './views/chatter-profile-view/chatter-profile-view.component';
-import { ChatterGroupsViewComponent } from './views/chatter-groups-view/chatter-groups-view.component';
-import { ChatterUsersViewComponent } from './views/chatter-users-view/chatter-users-view.component';
 import { ChatterDirectMessagesViewComponent } from './views/chatter-direct-messages-view/chatter-direct-messages-view.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,11 +30,8 @@ import { ChatComposerComponent } from './components/chat-composer/chat-composer.
 @NgModule({
     declarations: [
         AppComponent,
-        ChatterHomeViewComponent,
+        ChatterGroupViewComponent,
         ChatterLoginViewComponent,
-        ChatterProfileViewComponent,
-        ChatterGroupsViewComponent,
-        ChatterUsersViewComponent,
         ChatterDirectMessagesViewComponent,
         MainMenuComponent,
         PageHeaderComponent,

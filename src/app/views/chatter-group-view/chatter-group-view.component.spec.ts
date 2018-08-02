@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChatterGroupsViewComponent } from './chatter-groups-view.component';
+import { ChatterGroupViewComponent } from './chatter-group-view.component';
 
-describe('ChatterGroupsViewComponent', () => {
-    let component: ChatterGroupsViewComponent;
-    let fixture: ComponentFixture<ChatterGroupsViewComponent>;
+describe('ChatterGroupViewComponent', () => {
+    let component: ChatterGroupViewComponent;
+    let fixture: ComponentFixture<ChatterGroupViewComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ ChatterGroupsViewComponent ]
+            declarations: [ ChatterGroupViewComponent ]
         })
         .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ChatterGroupsViewComponent);
+        fixture = TestBed.createComponent(ChatterGroupViewComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
