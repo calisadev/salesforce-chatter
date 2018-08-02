@@ -19,13 +19,31 @@ export class DirectMessageService {
     public getMyConversations (): Observable<Conversation[]> {
         const resourcePath = 'users/me/conversations';
         return this.baseService.callGet(resourcePath).pipe(map(res => {
-            return res.conversations.map((conversation: Conversation) => {
-                conversation.members.map((user: User) => {
-                    user.isCurrentUser = user.id === this.currentUserId;
-                })
-                return conversation;
-            });
+            return res.conversations.map(this.prepareConversationData.bind(this));
         }));
+    }
+    private prepareConversationData (conversation: Conversation) {
+        conversation.title = this.buildConversationTitle(conversation);
+        conversation.userPhotos = this.buildConversationUserPhotos(conversation);
+        return conversation;
+    }
+    private buildConversationTitle (conversation: Conversation): string {
+        let names = conversation.members.map((member: User) => {
+            return member.id === this.currentUserId ? '' : member.name;
+        }).filter((name: string) => { return name !== ''});
+        return names.join(', ');
+    }
+    private buildConversationUserPhotos (conversation: Conversation): string[] {
+        let photoUrls = conversation.members.map((member: User) => {
+            return member.id === this.currentUserId ? '' : member.photo.fullEmailPhotoUrl;
+        }).filter((name: string) => { 
+            return name !== '';
+        });
+        photoUrls = photoUrls.slice(0, 3);
+        if (photoUrls.length > 1) {
+            photoUrls.push('assets/group-icon.png');
+        }
+        return photoUrls;
     }
 
     public getConversationDetail (conversationId: string, pageToken?: string): Observable<ConversationDetail> {
@@ -33,7 +51,7 @@ export class DirectMessageService {
         if (pageToken) {
             resourcePath += '?page=' + pageToken;
         }
-        return this.baseService.callGet(resourcePath).pipe(map(this.prepareConversationData.bind(this)));
+        return this.baseService.callGet(resourcePath).pipe(map(this.prepareConversationDetailData.bind(this)));
     }
     public sendMessage (message: string, members: User[]): Observable<Message> {
         const recipients = members.map((user) => { return user.id});
@@ -43,7 +61,7 @@ export class DirectMessageService {
         }
         return this.baseService.callPost('users/me/messages', messageBody).pipe(map(this.prepareMessageData.bind(this)));
     }
-    private prepareConversationData (conversationDetail: ConversationDetail): ConversationDetail {
+    private prepareConversationDetailData (conversationDetail: ConversationDetail): ConversationDetail {
         conversationDetail.messages.messages.map(this.prepareMessageData.bind(this));
         conversationDetail.messages.messages = conversationDetail.messages.messages.sort((a: Message, b: Message): number => {
             return a.sentDatetime > b.sentDatetime ? 1 : -1;
