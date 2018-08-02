@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 
 @Injectable({
-        providedIn: 'root'
+    providedIn: 'root'
 })
 export class EnsureAuthenticatedGuardService implements CanActivate {
 

@@ -1,19 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import {APP_BASE_HREF} from '@angular/common';
 import { AppComponent } from './app.component';
 import { ChatterGroupViewComponent } from './views/chatter-group-view/chatter-group-view.component';
 import { ChatterLoginViewComponent } from './views/chatter-login-view/chatter-login-view.component';
 import { AppRoutingModule } from './/app-routing.module';
-
 import { HttpClientModule } from '@angular/common/http';
 import { ChatterDirectMessagesViewComponent } from './views/chatter-direct-messages-view/chatter-direct-messages-view.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { FormsModule } from '@angular/forms';
-
 import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
     MatPaginatorModule, MatButtonModule, MatGridListModule, MatCheckboxModule, MatIconModule, MatChipsModule, MatTableModule,
     MatSidenavModule, MatExpansionModule } from '@angular/material';

@@ -13,8 +13,6 @@ export class SidebarConversationItemComponent implements OnInit {
     public conversationName: string;
     public conversationPhotoUrls: string[];
 
-    constructor() { }
-
     public ngOnInit(): void {
         this.conversationName = this.buildConversationName();
         this.conversationPhotoUrls = this.buildConversationPhoto();

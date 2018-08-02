@@ -6,7 +6,7 @@ import { Message } from '../../salesforce/models/Message';
     templateUrl: './chat-view.component.html',
     styleUrls: ['./chat-view.component.css']
 })
-export class ChatViewComponent implements OnInit {
+export class ChatViewComponent {
     @Input() messages: Message[];
     @Input() nextPageToken: string;
     @Output() loadMoreEvent: EventEmitter<any> = new EventEmitter();
@@ -16,8 +16,6 @@ export class ChatViewComponent implements OnInit {
 
     constructor (private elementRef: ElementRef) { }
 
-    public ngOnInit (): void {
-    }
     public scrollBottom () {
         this.chatContainter.nativeElement.scrollTop = this.chatContainter.nativeElement.scrollHeight;
     }

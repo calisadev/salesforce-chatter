@@ -7,11 +7,11 @@ import { AuthenticationService } from './authentication.service';
 })
 export class LogoutRedirectGuardService implements CanActivate {
 
-  constructor (private authenticationService: AuthenticationService, private router: Router) {}
+    constructor (private authenticationService: AuthenticationService, private router: Router) {}
     
-  public canActivate (): boolean {
-      this.authenticationService.logout();
-      window.location.href = '/login';
-      return true;
-  }
+    public canActivate (): boolean {
+        this.authenticationService.logout();
+        window.location.href = '/login';
+        return true;
+    }
 }

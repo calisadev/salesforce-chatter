@@ -18,5 +18,4 @@ export class MainMenuComponent implements OnInit {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
         this.currentUserDetails = this.authenticationService.getCurrentUserDetails();
     }
-
 }

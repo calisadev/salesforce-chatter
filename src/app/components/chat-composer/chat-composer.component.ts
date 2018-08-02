@@ -9,9 +9,7 @@ export class ChatComposerComponent {
     public message: string;
     @Output() sendMessageEvent: EventEmitter<any> = new EventEmitter();
 
-    constructor() { }
-
-    public onKeyDown (event: any) {
+    public onKeyDown (event: any): void {
         if (event.keyCode == 13) {
             this.sendMessageEvent.emit(this.message);
         }

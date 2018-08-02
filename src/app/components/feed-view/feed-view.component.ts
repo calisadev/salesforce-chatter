@@ -11,7 +11,6 @@ export class FeedViewComponent {
     @Input() feeds : Feed[];
     @Output() commentPostEvent: EventEmitter<any> = new EventEmitter();
 
-    constructor() { }
     public shouldShowFeedView (): boolean {
         return this.feeds && this.feeds.length > 0;
     }
@@ -20,8 +19,5 @@ export class FeedViewComponent {
     }
     public onPostCommentButtonClicked (feed: Feed): void {
         this.commentPostEvent.emit(feed);
-    }
-    public attachNewCommentToFeed (comment: Comment, feedId: string) {
-        
     }
 }

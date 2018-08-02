@@ -22,7 +22,7 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
     public nextPageToken: string;
     public messages : Message[] = [];
 
-    constructor (private directMessageService: DirectMessageService) { }
+    constructor (private directMessageService: DirectMessageService) {}
 
     public ngOnInit (): void {
         this.title = "Direct Messages";

@@ -5,13 +5,6 @@ import { Group } from '../../salesforce/models/Group';
     templateUrl: './sidebar-group-item.component.html',
     styleUrls: ['./sidebar-group-item.component.css']
 })
-export class SidebarGroupItemComponent implements OnInit {
-
+export class SidebarGroupItemComponent {
     @Input() group: Group;
-
-    constructor() { }
-
-    ngOnInit () {
-    }
-
 }

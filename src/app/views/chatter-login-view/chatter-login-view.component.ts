@@ -21,7 +21,6 @@ export class ChatterLoginViewComponent implements OnInit {
         this.activatedRoute.queryParams.subscribe((params) => {
             const code = params.code;
             if (code) {
-                this.instruction = 'Authorizing, please wait...';
                 this.authorizeAndPerformLogin(code);
             }
         });
@@ -31,17 +30,17 @@ export class ChatterLoginViewComponent implements OnInit {
         window.location.href = url;
     }
     private authorizeAndPerformLogin (code: string): void {
+        this.instruction = 'Authorizing, please wait...';
         this.oauthService.getAccessToken(code).subscribe((tokenInfo: AccessTokenInfo) => {
             if (tokenInfo && tokenInfo.access_token) {
-                this.instruction = 'Welcome back! We\'re redirecting you to home page...';
                 this.onLoginSuccessfully(tokenInfo);
             } else {
-                this.instruction = 'Authentication failed!';
                 this.onLoginFailed();
             }
         });
     }
     private onLoginSuccessfully (tokenInfo: AccessTokenInfo): void {
+        this.instruction = 'Welcome back! We\'re redirecting you to home page...';
         this.authenticationService.storeTokenInfo(tokenInfo);
         this.userService.getCurrentUserDetails().subscribe((user: User) => {
             this.authenticationService.storeCurrentUserDetails(user);
@@ -49,6 +48,7 @@ export class ChatterLoginViewComponent implements OnInit {
         });
     }
     private onLoginFailed (): void {
+        this.instruction = 'Authentication failed!';
         this.router.navigateByUrl('/login');
     }
 }

@@ -7,7 +7,7 @@ import { Conversation } from '../../salesforce/models/Conversation';
     templateUrl: './sidebar-list.component.html',
     styleUrls: ['./sidebar-list.component.css']
 })
-export class SidebarListComponent implements OnInit {
+export class SidebarListComponent {
     @Input() groups : Group[];
     @Input() conversations : Conversation[];
     @Output() groupClickEvent: EventEmitter<any> = new EventEmitter();
@@ -15,11 +15,6 @@ export class SidebarListComponent implements OnInit {
 
     public conversationMemberPhotoUrls : string[] = [];
 
-    constructor() { }
-
-    public ngOnInit (): void {
-
-    }
     public onGroupClicked (group: Group) {
         this.groupClickEvent.emit(group);
     }
