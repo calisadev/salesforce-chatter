@@ -14,7 +14,7 @@ export class MainMenuComponent implements OnInit {
 
     constructor (private authenticationService: AuthenticationService) { }
     
-    public ngOnInit () {
+    public ngOnInit (): void {
         this.isLoggedIn = this.authenticationService.isLoggedIn();
         this.currentUserDetails = this.authenticationService.getCurrentUserDetails();
     }
