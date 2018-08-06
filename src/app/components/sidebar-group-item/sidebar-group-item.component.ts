@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Group } from '../../salesforce/models/Group';
 @Component({
     selector: 'app-sidebar-group-item',

@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { LoginRedirectGuardService } from './login-redirect-guard.service';
 
 describe('LoginRedirectGuardService', () => {

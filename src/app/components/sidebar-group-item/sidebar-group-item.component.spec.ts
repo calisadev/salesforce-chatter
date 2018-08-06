@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SidebarGroupItemComponent } from './sidebar-group-item.component';
 
 describe('SidebarGroupItemComponent', () => {

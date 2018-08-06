@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Message } from '../../salesforce/models/Message';
 
 @Component({
@@ -12,9 +12,7 @@ export class ChatViewComponent {
     @Output() loadMoreEvent: EventEmitter<any> = new EventEmitter();
     @ViewChild('chatContainter') private chatContainter: ElementRef;
 
-    private currentUserId: string;
-
-    constructor (private elementRef: ElementRef) { }
+    constructor () { }
 
     public scrollBottom () {
         this.chatContainter.nativeElement.scrollTop = this.chatContainter.nativeElement.scrollHeight;

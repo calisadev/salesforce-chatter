@@ -29,6 +29,7 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
         this.directMessageService.getMyConversations().subscribe((conversations: Conversation[]) => {
             this.conversations = conversations;
             this.currentConversation = this.conversations[0];
+            this.currentConversation.isSelected = true;
             this.loadConversationDetail(this.currentConversation.id, null);
         });
     }

@@ -1,4 +1,4 @@
-<mat-card class="sidebar-group-item" >
+<mat-card class="sidebar-group-item" [ngClass]="{'selected' : group.isSelected}">
     <img class="sidebar-group-item-photo" src="{{group.photo.standardEmailPhotoUrl}}">
     <div class="sidebar-group-item-details">
         <h4>{{group.name}}</h4>

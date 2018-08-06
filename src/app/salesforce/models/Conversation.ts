@@ -9,4 +9,5 @@ export interface Conversation {
     userPhotos: string[];
     latestMessage: Message;
     members: User[];
+    isSelected: boolean;
 }

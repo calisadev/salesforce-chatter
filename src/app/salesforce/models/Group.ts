@@ -9,7 +9,8 @@ export interface Group {
     memberCount: number,
     owner: User,
     photo: Photo,
-    visibility: string
+    visibility: string,
+    isSelected: boolean
 }
 export interface GROUP_VISIBILITY {
     PUBLIC: 'PublicAccess',

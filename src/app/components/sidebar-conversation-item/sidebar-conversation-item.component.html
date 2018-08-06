@@ -1,4 +1,4 @@
-<mat-card class="sidebar-conversation-item" >
+<mat-card class="sidebar-conversation-item" [ngClass]="{'selected' : conversation.isSelected}">
     <div class="sidebar-conversation-item-photos">
         <img *ngFor="let photoUrl of conversation.userPhotos" class="sidebar-conversation-item-photo size-{{conversation.userPhotos.length}}" src="{{photoUrl}}">
     </div>

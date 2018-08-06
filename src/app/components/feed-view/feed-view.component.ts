@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Feed } from '../../salesforce/models/Feed';
-import { Comment } from '../../salesforce/models/Comment';
 
 @Component({
         selector: 'app-feed-view',

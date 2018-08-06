@@ -6,6 +6,9 @@
     justify-content: left;
     border-radius: 5px;
 }
+.sidebar-conversation-item.selected {
+    background-color: darkgray;
+}
 .sidebar-conversation-item-photos {
     width: 60px;
     min-width: 60px;

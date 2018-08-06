@@ -8,6 +8,9 @@
     align-items: stretch;
     border-radius: 5px;
 }
+.sidebar-group-item.selected {
+    background-color: darkgray;
+}
 .sidebar-group-item-photo {
     height:50px;
     border-radius: 50%;
@@ -21,3 +24,4 @@
 .sidebar-group-item-details h4 {
     margin: 0px;
 }
+

@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SidebarConversationItemComponent } from './sidebar-conversation-item.component';
 
 describe('SidebarConversationItemComponent', () => {

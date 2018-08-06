@@ -31,6 +31,7 @@ export class ChatterGroupViewComponent implements OnInit {
     }
     public onGroupSelected (group: Group): void {
         this.currentGroup = group;
+        this.currentGroup.isSelected = true;
         this.feedService.getGroupFeeds(group.id).subscribe((result: any) => {
             this.feeds = result.elements;
         });

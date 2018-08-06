@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { EnsureAuthenticatedGuardService } from './ensure-authenticated-guard.service';
 
 describe('EnsureAuthenticatedGuardService', () => {
