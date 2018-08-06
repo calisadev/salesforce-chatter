@@ -33,7 +33,7 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
             this.loadConversationDetail(this.currentConversation.id, null);
         });
     }
-    private loadConversationDetail (conversationId: string, pageToken: string) {
+    private loadConversationDetail (conversationId: string, pageToken: string): void {
         this.directMessageService.getConversationDetail(conversationId, pageToken).subscribe((conversationDetail: ConversationDetail) => {
             this.nextPageToken = conversationDetail.messages.nextPageToken;
             this.messages.unshift(...conversationDetail.messages.messages);
@@ -44,15 +44,14 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
         this.messages = [];
         this.loadConversationDetail(this.currentConversation.id, null);
     }
-    public onLoadMoreEvent (nextPageToken: string) {
+    public onLoadMoreEvent (nextPageToken: string): void {
         this.loadConversationDetail(this.currentConversation.id, nextPageToken);
     }
-    public onMessageSend (messageText: string) {
+    public onMessageSend (messageText: string): void {
         this.directMessageService.sendMessage(messageText, this.currentConversation.members).subscribe((message: Message) => {
             if (message && message.id) {
                 this.messages.push(message);
                 this.chatComposer.clear();
-                this.chatView.scrollBottom();
             }
         });
     }

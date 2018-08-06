@@ -2,9 +2,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Feed } from '../../salesforce/models/Feed';
 
 @Component({
-        selector: 'app-feed-view',
-        templateUrl: './feed-view.component.html',
-        styleUrls: ['./feed-view.component.css']
+    selector: 'app-feed-view',
+    templateUrl: './feed-view.component.html',
+    styleUrls: ['./feed-view.component.css']
 })
 export class FeedViewComponent {
     @Input() feeds : Feed[];

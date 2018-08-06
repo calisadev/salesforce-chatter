@@ -8,7 +8,6 @@ import { User } from '../../salesforce/models/User';
 export class AuthenticationService {
     private static readonly TOKEN = 'token';
     private static readonly CURRENT_USER = 'current-user-details';
-    constructor() { }
 
     public storeTokenInfo (tokenInfo: AccessTokenInfo): void {
         sessionStorage.setItem(AuthenticationService.TOKEN, JSON.stringify(tokenInfo));

@@ -12,7 +12,7 @@ export class MainMenuComponent implements OnInit {
     public isLoggedIn : boolean = false;
     public currentUserDetails: User;
 
-    constructor (private authenticationService: AuthenticationService) { }
+    constructor (private authenticationService: AuthenticationService) {}
     
     public ngOnInit (): void {
         this.isLoggedIn = this.authenticationService.isLoggedIn();

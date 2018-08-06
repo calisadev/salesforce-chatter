@@ -25,7 +25,7 @@ export class ChatterLoginViewComponent implements OnInit {
             }
         });
     }
-    public onLoginClicked () {
+    public onLoginClicked (): void {
         const url = environment.salesforceUrl + '/services/oauth2/authorize?response_type=code&client_id=' + environment.clientId + '&redirect_uri=' + environment.redirectUrl;
         window.location.href = url;
     }

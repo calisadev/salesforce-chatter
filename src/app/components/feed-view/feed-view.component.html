@@ -1,35 +1,35 @@
 
 <div class="feed-view-container" *ngIf="shouldShowFeedView()">
     <mat-card class="feed-view-item-container" *ngFor="let feed of feeds">
-      <img src="{{feed.actor.photo.fullEmailPhotoUrl}}" class="feed-view-item-user-avatar">
-      <div class="feed-view-content">
-          <h4>{{feed.actor.name}}</h4>
-          <p>{{feed.body.text}}</p>
-          <mat-expansion-panel class="feed-view-expansion-panel">
-                  <mat-expansion-panel-header>
+        <img src="{{feed.actor.photo.fullEmailPhotoUrl}}" class="feed-view-item-user-avatar">
+        <div class="feed-view-content">
+            <h4>{{feed.actor.name}}</h4>
+            <p>{{feed.body.text}}</p>
+            <mat-expansion-panel class="feed-view-expansion-panel">
+                <mat-expansion-panel-header>
                     <mat-panel-title>
-                          <mat-chip-list>
-                              <mat-icon *ngIf="!isLikedByCurrentUser(feed)" color="primary">thumb_up</mat-icon>
-                              <p *ngIf="isLikedByCurrentUser(feed)" color="primary">You like this</p>
-                              <mat-chip>{{feed.capabilities.chatterLikes.page.total}} Likes</mat-chip>
-                              <mat-chip>{{feed.capabilities.comments.page.total}} Comments</mat-chip>
-                          </mat-chip-list>
+                        <mat-chip-list>
+                            <mat-icon *ngIf="!isLikedByCurrentUser(feed)" color="primary">thumb_up</mat-icon>
+                            <p *ngIf="isLikedByCurrentUser(feed)" color="primary">You like this</p>
+                            <mat-chip>{{feed.capabilities.chatterLikes.page.total}} Likes</mat-chip>
+                            <mat-chip>{{feed.capabilities.comments.page.total}} Comments</mat-chip>
+                        </mat-chip-list>
                     </mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <mat-card class="feed-view-item-container" *ngFor="let comment of feed.capabilities.comments.page.items">
-                          <img src="{{comment.user.photo.fullEmailPhotoUrl}}" class="feed-view-item-user-avatar">
-                          <div class="feed-view-content">
-                              <h4>{{comment.user.name}}</h4>
-                              <p>{{comment.body.text}}</p>
-                              <mat-chip>{{comment.capabilities.upDownVote.upVoteCount}} Likes</mat-chip>
-                          </div>
-                  </mat-card>
-                  <mat-form-field appearance="outline" class="feed-view-comment-textbox">
-                      <mat-label>Your comment</mat-label>
-                          <textarea [(ngModel)]="feed.newComment" rows="1" matInput ></textarea>
-                      <mat-icon matSuffix (click)="onPostCommentButtonClicked(feed)">send</mat-icon>
-                    </mat-form-field>
-          </mat-expansion-panel>
-      </div>
+                </mat-expansion-panel-header>
+                <mat-card class="feed-view-item-container" *ngFor="let comment of feed.capabilities.comments.page.items">
+                    <img src="{{comment.user.photo.fullEmailPhotoUrl}}" class="feed-view-item-user-avatar">
+                    <div class="feed-view-content">
+                        <h4>{{comment.user.name}}</h4>
+                        <p>{{comment.body.text}}</p>
+                        <mat-chip>{{comment.capabilities.upDownVote.upVoteCount}} Likes</mat-chip>
+                    </div>
+                </mat-card>
+                <mat-form-field appearance="outline" class="feed-view-comment-textbox">
+                    <mat-label>Your comment</mat-label>
+                        <textarea [(ngModel)]="feed.newComment" rows="1" matInput ></textarea>
+                    <mat-icon matSuffix (click)="onPostCommentButtonClicked(feed)">send</mat-icon>
+                </mat-form-field>
+            </mat-expansion-panel>
+        </div>
     </mat-card>
 </div>

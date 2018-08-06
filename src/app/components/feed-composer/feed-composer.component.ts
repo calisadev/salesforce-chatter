@@ -10,7 +10,7 @@ export class FeedComposerComponent {
     public feedContent: string;
     @Output() feedPostEvent: EventEmitter<any> = new EventEmitter();
     
-    public onPostButtonClick () {
+    public onPostButtonClick (): void {
         this.feedPostEvent.emit(this.feedContent);
     }
     public clear (): void {

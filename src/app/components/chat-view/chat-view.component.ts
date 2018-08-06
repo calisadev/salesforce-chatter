@@ -10,18 +10,8 @@ export class ChatViewComponent {
     @Input() messages: Message[];
     @Input() nextPageToken: string;
     @Output() loadMoreEvent: EventEmitter<any> = new EventEmitter();
-    @ViewChild('chatContainter') private chatContainter: ElementRef;
 
-    constructor () { }
-
-    public scrollBottom () {
-        this.chatContainter.nativeElement.scrollTop = this.chatContainter.nativeElement.scrollHeight;
-    }
-    public scrollTop () {
-        this.chatContainter.nativeElement.scrollBottom = this.chatContainter.nativeElement.scrollHeight;
-    }
-
-    public onLoadMoreButtonClicked () {
+    public onLoadMoreButtonClicked (): void {
         this.loadMoreEvent.emit(this.nextPageToken);
     }
 }

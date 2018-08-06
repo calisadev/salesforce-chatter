@@ -8,7 +8,7 @@ import { AuthenticationService } from './authentication.service';
 export class LoginRedirectGuardService implements CanActivate {
 
     constructor (private authenticationService: AuthenticationService, private router: Router) {}
-    
+
     public canActivate (): boolean {
         if (this.authenticationService.isLoggedIn()) {
             this.router.navigateByUrl('/groups');
