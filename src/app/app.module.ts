@@ -9,9 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChatterDirectMessagesViewComponent } from './views/chatter-direct-messages-view/chatter-direct-messages-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
+import { MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
     MatPaginatorModule, MatButtonModule, MatGridListModule, MatCheckboxModule, MatIconModule, MatChipsModule, MatTableModule,
-    MatSidenavModule, MatExpansionModule, MatDialogModule, MatSelectModule, MatSnackBarModule, MatAutocompleteModule } from '@angular/material';
+    MatSidenavModule, MatExpansionModule, MatDialogModule, MatSelectModule, MatSnackBarModule, MatAutocompleteModule, MatTabsModule, MatDividerModule, MatListModule } from '@angular/material';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
@@ -67,7 +67,10 @@ import { CreateConversationDialogComponent } from './components/create-conversat
         MatDialogModule,
         MatSelectModule,
         MatSnackBarModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatTabsModule,
+        MatDividerModule,
+        MatListModule
     ],
     entryComponents: [
         CreateGroupDialogComponent,

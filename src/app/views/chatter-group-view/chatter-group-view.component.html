@@ -4,6 +4,9 @@
         <button mat-icon-button class="create-group-button" (click)="onCreateGroupClicked()" color="primary">
             <mat-icon>add_circle</mat-icon>
         </button>
+        <button mat-icon-button class="create-group-button" (click)="leftSidebar.toggle()" color="primary">
+            <mat-icon>vertical_split</mat-icon>
+        </button>
         <app-sidebar-list [groups]="groups" (groupClickEvent)="onGroupSelected($event)">
         </app-sidebar-list>
     </mat-sidenav>
@@ -13,6 +16,22 @@
         <app-feed-view [feeds]="feeds" (commentPostEvent)="onCommentPostEvent($event)">
         </app-feed-view>
     </mat-sidenav-content>
-    <mat-sidenav position="end" class="right-sidebar" mode="side" closed>
+    <mat-sidenav #leftSidebar position="end" class="right-sidebar" mode="side" closed>
+        <mat-tab-group *ngIf="currentGroup">
+            <mat-tab label="Info">
+                <mat-list>
+                    <mat-list-item>Owner: {{currentGroup.owner.name}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>My Role: {{currentGroup.myRole}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Type: {{currentGroup.type}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Visibility: {{currentGroup.visibility}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Member count: {{currentGroup.memberCount}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-tab>
+        </mat-tab-group>
     </mat-sidenav>
 </mat-sidenav-container>

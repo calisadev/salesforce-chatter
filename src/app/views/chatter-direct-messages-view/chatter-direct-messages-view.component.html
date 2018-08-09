@@ -4,6 +4,9 @@
         <button mat-icon-button class="create-group-button" (click)="onCreateConversationlicked()" color="primary">
             <mat-icon>add_circle</mat-icon>
         </button>
+        <button mat-icon-button class="create-group-button" (click)="leftSidebar.toggle()" color="primary">
+            <mat-icon>vertical_split</mat-icon>
+        </button>
         <app-sidebar-list [conversations]="conversations" (conversationClicked)="onConversationSelected($event)">
         </app-sidebar-list>
     </mat-sidenav>
@@ -13,6 +16,25 @@
         <app-chat-composer (sendMessageEvent)="onMessageSend($event)">
         </app-chat-composer>
     </mat-sidenav-content>
-    <mat-sidenav position="end" class="right-sidebar" mode="side" closed>
-    </mat-sidenav>
+    <mat-sidenav #leftSidebar position="end" class="right-sidebar" mode="side" closed>
+            <mat-tab-group *ngIf="currentConversation">
+                <mat-tab label="Info">
+                    <mat-list>
+                        <mat-list-item>Conversation Id: {{currentConversation.id}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                    </mat-list>
+                </mat-tab>
+                <mat-tab label="Members">
+                    <mat-list class="right-sidebar-list">
+                        <div  *ngFor="let member of currentConversation.members">
+                            <mat-list-item>
+                                <img class="right-sidebar-avatar" src="{{member.photo.fullEmailPhotoUrl}}">
+                                <h4>{{member.name}}</h4>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                        </div>
+                    </mat-list>
+                </mat-tab>
+            </mat-tab-group>
+        </mat-sidenav>
 </mat-sidenav-container>

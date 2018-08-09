@@ -33,6 +33,9 @@ export class ChatterGroupViewComponent implements OnInit {
             this.onGroupSelected(this.groups[0]);
         });
     }
+    public toggleRightSideBar () {
+        
+    }
     public onCreateGroupClicked (): void {
         const dialogRef = this.dialog.open(CreateGroupDialogComponent, {
             width: '500px',

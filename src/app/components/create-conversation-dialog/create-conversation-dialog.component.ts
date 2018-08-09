@@ -65,7 +65,7 @@ export class CreateConversationDialogComponent implements OnInit {
         });
     }
 
-    public onNoClick(): void {
+    public onNoClick (): void {
         this.dialogRef.close();
     }
 }
