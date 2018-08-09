@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Create new group</h1>
+<div mat-dialog-content class="create-group-dialog-content">
+    <mat-form-field class="create-group-form">
+        <mat-label>Group name</mat-label>
+        <input matInput required [(ngModel)]="group.name">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select required [(value)]="group.visibility">
+          <mat-option *ngFor="let type of groupVisibilityTypes" [value]="type.code">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+<div mat-dialog-actions class="create-group-dialog-actions">
+    <button mat-raised-button (click)="onNoClick()" color="warn">Cancel</button>
+    <button mat-raised-button [disabled]="!group.name" [mat-dialog-close]="group" color="primary" cdkFocusInitial>Create</button>
+</div>

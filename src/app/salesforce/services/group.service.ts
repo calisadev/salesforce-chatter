@@ -22,4 +22,11 @@ export class GroupService {
         };
         return this.baseService.callPost('groups/' + groupId + '/members', data);
     }
+    public createGroup (name: string, visibility: string): Observable<Group> {
+        const data = {
+            name: name,
+            visibility: visibility
+        };
+        return this.baseService.callPost('groups', data);
+    }
 }

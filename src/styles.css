@@ -9,3 +9,16 @@ body {
     width: 100%;
     margin: 0px;
 }
+.chatter-snackbar {
+    padding: 25px !important;
+    background: white !important;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12) !important;
+}
+
+.chatter-snackbar.success {
+    color: forestgreen;
+}
+
+.chatter-snackbar.error {
+    color: firebrick;
+}

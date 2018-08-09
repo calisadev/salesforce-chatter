@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
     MatPaginatorModule, MatButtonModule, MatGridListModule, MatCheckboxModule, MatIconModule, MatChipsModule, MatTableModule,
-    MatSidenavModule, MatExpansionModule } from '@angular/material';
+    MatSidenavModule, MatExpansionModule, MatDialogModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
@@ -21,6 +21,7 @@ import { FeedComposerComponent } from './components/feed-composer/feed-composer.
 import { SidebarGroupItemComponent } from './components/sidebar-group-item/sidebar-group-item.component';
 import { SidebarConversationItemComponent } from './components/sidebar-conversation-item/sidebar-conversation-item.component';
 import { ChatComposerComponent } from './components/chat-composer/chat-composer.component';
+import { CreateGroupDialogComponent } from './components/create-group-dialog/create-group-dialog.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { ChatComposerComponent } from './components/chat-composer/chat-composer.
         FeedComposerComponent,
         SidebarGroupItemComponent,
         SidebarConversationItemComponent,
-        ChatComposerComponent
+        ChatComposerComponent,
+        CreateGroupDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -58,7 +60,13 @@ import { ChatComposerComponent } from './components/chat-composer/chat-composer.
         MatIconModule,
         MatChipsModule,
         MatSidenavModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatDialogModule,
+        MatSelectModule,
+        MatSnackBarModule
+    ],
+    entryComponents: [
+        CreateGroupDialogComponent
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]

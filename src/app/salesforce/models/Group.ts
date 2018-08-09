@@ -12,7 +12,7 @@ export interface Group {
     visibility: string,
     isSelected: boolean
 }
-export interface GROUP_VISIBILITY {
+export const GROUP_VISIBILITY = {
     PUBLIC: 'PublicAccess',
     PRIVATE: 'PrivateAccess'
 }
