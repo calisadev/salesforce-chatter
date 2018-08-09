@@ -16,12 +16,12 @@ export class SnackbarService {
         this.config.verticalPosition = 'bottom';
     }
 
-    public showSuccessMessage(message: string) {
+    public showSuccessMessage(message: string): void {
         this.config.panelClass.push('success');
         this.snackBar.open(message, null, this.config);
     }
-    public showErrorMessage(message: string) {
-      this.config.panelClass.push('error');
+    public showErrorMessage(message: string): void {
+        this.config.panelClass.push('error');
         this.snackBar.open(message, null, this.config);
     }
 }

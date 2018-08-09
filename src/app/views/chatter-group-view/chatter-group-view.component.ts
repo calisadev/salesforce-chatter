@@ -41,7 +41,6 @@ export class ChatterGroupViewComponent implements OnInit {
         dialogRef.afterClosed().subscribe((group) => {
             this.createGroup(group);
         });
-        
     }
     private createGroup (group: Group) {
         if (group) {

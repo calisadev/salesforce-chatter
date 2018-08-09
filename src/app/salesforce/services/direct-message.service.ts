@@ -22,7 +22,7 @@ export class DirectMessageService {
             return res.conversations.map(this.prepareConversationData.bind(this));
         }));
     }
-    private prepareConversationData (conversation: Conversation) {
+    private prepareConversationData (conversation: Conversation): Conversation {
         conversation.title = this.buildConversationTitle(conversation);
         conversation.userPhotos = this.buildConversationUserPhotos(conversation);
         return conversation;
@@ -54,7 +54,7 @@ export class DirectMessageService {
         return this.baseService.callGet(resourcePath).pipe(map(this.prepareConversationDetailData.bind(this)));
     }
     public sendMessage (message: string, members: User[]): Observable<Message> {
-        const recipients = members.map((user) => { return user.id});
+        const recipients = members.map((user) => { return user.id });
         const messageBody = {
             body: message,
             recipients: recipients

@@ -17,4 +17,9 @@ export class UserService {
     public getCurrentUserDetails (): Observable<User> {
         return this.getUserDetails('me');
     }
+
+    public getAllUsers (): Observable<User[]> {
+        return this.baseService.callGet<User[]>('users');
+    }
+
 }

@@ -3,7 +3,8 @@ import { MessageBody } from "./MessageBody";
 import { User } from "./User";
 
 export interface Message {
-    id: String;
+    id: string;
+    conversationId: string;
     body: MessageBody;
     sender: User;
     sentDate: string;

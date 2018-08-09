@@ -8,10 +8,10 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatterDirectMessagesViewComponent } from './views/chatter-direct-messages-view/chatter-direct-messages-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule, MatCardModule, MatToolbarModule, MatMenuModule, MatFormFieldModule, MatInputModule, 
     MatPaginatorModule, MatButtonModule, MatGridListModule, MatCheckboxModule, MatIconModule, MatChipsModule, MatTableModule,
-    MatSidenavModule, MatExpansionModule, MatDialogModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
+    MatSidenavModule, MatExpansionModule, MatDialogModule, MatSelectModule, MatSnackBarModule, MatAutocompleteModule } from '@angular/material';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { SidebarListComponent } from './components/sidebar-list/sidebar-list.component';
@@ -22,6 +22,7 @@ import { SidebarGroupItemComponent } from './components/sidebar-group-item/sideb
 import { SidebarConversationItemComponent } from './components/sidebar-conversation-item/sidebar-conversation-item.component';
 import { ChatComposerComponent } from './components/chat-composer/chat-composer.component';
 import { CreateGroupDialogComponent } from './components/create-group-dialog/create-group-dialog.component';
+import { CreateConversationDialogComponent } from './components/create-conversation-dialog/create-conversation-dialog.component';
 
 @NgModule({
     declarations: [
@@ -38,13 +39,15 @@ import { CreateGroupDialogComponent } from './components/create-group-dialog/cre
         SidebarGroupItemComponent,
         SidebarConversationItemComponent,
         ChatComposerComponent,
-        CreateGroupDialogComponent
+        CreateGroupDialogComponent,
+        CreateConversationDialogComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         MatMenuModule,
         MatToolbarModule,
         MatFormFieldModule,
@@ -63,10 +66,12 @@ import { CreateGroupDialogComponent } from './components/create-group-dialog/cre
         MatExpansionModule,
         MatDialogModule,
         MatSelectModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatAutocompleteModule
     ],
     entryComponents: [
-        CreateGroupDialogComponent
+        CreateGroupDialogComponent,
+        CreateConversationDialogComponent
     ],
     providers: [{provide: APP_BASE_HREF, useValue: '/'}],
     bootstrap: [AppComponent]

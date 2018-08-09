@@ -1,4 +1,4 @@
-<mat-card class="sidebar-list">
+<div class="sidebar-list">
     <mat-form-field class="sidebar-list-search-form" appearance="outline">
         <mat-label>Search</mat-label>
         <input [(ngModel)]="keyword" (ngModelChange)="filterItems()" matInput>
@@ -8,4 +8,4 @@
     </app-sidebar-group-item>
     <app-sidebar-conversation-item *ngFor="let conversation of filteredConversations" [conversation]="conversation" (click)="onConversationClicked(conversation)">
     </app-sidebar-conversation-item>
-</mat-card>
+</div>

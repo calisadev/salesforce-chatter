@@ -9,11 +9,15 @@ import { Group, GROUP_VISIBILITY } from '../../salesforce/models/Group';
 })
 export class CreateGroupDialogComponent implements OnInit {
     public groupVisibilityTypes = [];
-    constructor (public dialogRef: MatDialogRef<CreateGroupDialogComponent>, @Inject(MAT_DIALOG_DATA) public group: Group) {}
+    public group: any;
+    
+    constructor (public dialogRef: MatDialogRef<CreateGroupDialogComponent>) {}
     
     public ngOnInit (): void {
-        this.group.name = '';
-        this.group.visibility = GROUP_VISIBILITY.PUBLIC;
+        this.group = {
+            name: '',
+            visibility: GROUP_VISIBILITY.PUBLIC
+        };
         this.groupVisibilityTypes = [{
             code: GROUP_VISIBILITY.PUBLIC,
             name: 'Public Access' 
