@@ -11,7 +11,3 @@ export interface Conversation {
     members: User[];
     isSelected: boolean;
 }
-export type NewConversation = {
-    users: User[],
-    message: string 
-}

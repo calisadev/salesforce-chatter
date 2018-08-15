@@ -1,6 +1,15 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Group, GROUP_VISIBILITY } from '../../salesforce/models/Group';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { GROUP_VISIBILITY } from '../../salesforce/models/Group';
+
+type NewGroup = {
+    name: string,
+    visibility: string
+}
+type VisibilityType = {
+    code: string,
+    name: string
+}
 
 @Component({
     selector: 'app-create-group-dialog',
@@ -8,26 +17,34 @@ import { Group, GROUP_VISIBILITY } from '../../salesforce/models/Group';
     styleUrls: ['./create-group-dialog.component.css']
 })
 export class CreateGroupDialogComponent implements OnInit {
-    public groupVisibilityTypes = [];
-    public group: any;
+    public groupVisibilityTypes : VisibilityType[];
+    public group: NewGroup;
     
     constructor (public dialogRef: MatDialogRef<CreateGroupDialogComponent>) {}
     
     public ngOnInit (): void {
-        this.group = {
-            name: '',
-            visibility: GROUP_VISIBILITY.PUBLIC
-        };
+        this.initVisibilityTypes();
+        this.initNewGroup();
+    }
+
+    private initVisibilityTypes (): void {
         this.groupVisibilityTypes = [{
             code: GROUP_VISIBILITY.PUBLIC,
             name: 'Public Access' 
-        },{
+        }, {
             code: GROUP_VISIBILITY.PRIVATE,
             name: 'Private Access' 
         }];
     }
 
-    public onNoClick(): void {
+    private initNewGroup (): void {
+        this.group = {
+            name: '',
+            visibility: GROUP_VISIBILITY.PUBLIC
+        };
+    }
+
+    public onNoClick (): void {
         this.dialogRef.close();
     }
 }

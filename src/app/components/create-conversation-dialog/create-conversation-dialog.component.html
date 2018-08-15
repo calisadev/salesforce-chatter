@@ -2,32 +2,20 @@
 <div mat-dialog-content class="create-group-dialog-content">
     <mat-form-field class="user-chip-list">
         <mat-chip-list #chipList>
-            <mat-chip
-            *ngFor="let user of newConversation.users"
-            [selectable]="selectable"
-            [removable]="removable"
-            (removed)="remove(user)">
-            {{user.name}}
-            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            <mat-chip *ngFor="let user of newConversation.users" [selectable]="true" [removable]="true" (removed)="remove(user)">
+                {{user.name}} <mat-icon matChipRemove *ngIf="removable">Remove</mat-icon>
             </mat-chip>
-            
-            <input
-                placeholder="Recipient ..."
-                #userInput
-                [formControl]="userCtrl"
-                [matAutocomplete]="auto"
-                [matChipInputFor]="chipList">
-            
+            <input placeholder="Recipient(s) ..." #userInput [formControl]="userCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList">
         </mat-chip-list>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
-            {{user.name}}
+                {{user.name}}
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
     <mat-form-field class="create-conversation-form">
-            <mat-label>Message</mat-label>
-            <input matInput required [(ngModel)]="newConversation.message">
+        <mat-label>Message</mat-label>
+        <input matInput required [(ngModel)]="newConversation.message">
     </mat-form-field>
 </div>
 <div mat-dialog-actions class="create-conversation-dialog-actions">

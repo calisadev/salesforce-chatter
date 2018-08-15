@@ -16,12 +16,6 @@ export class GroupService {
             return res.groups;
         }));
     }
-    public joinToGroup (groupId: string, userId: string): Observable<any> {
-        const data = {
-            userId: userId
-        };
-        return this.baseService.callPost('groups/' + groupId + '/members', data);
-    }
     public createGroup (name: string, visibility: string): Observable<Group> {
         const data = {
             name: name,

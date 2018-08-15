@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GroupService } from '../../salesforce/services/group.service'
-import { Group, GROUP_VISIBILITY } from '../../salesforce/models/Group';
+import { Group } from '../../salesforce/models/Group';
 import { Feed } from '../../salesforce/models/Feed';
 import { FeedService } from '../../salesforce/services/feed.service';
 import { FeedComposerComponent } from '../../components/feed-composer/feed-composer.component';
 import { FeedViewComponent } from '../../components/feed-view/feed-view.component';
 import { Comment } from '../../salesforce/models/Comment';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { CreateGroupDialogComponent } from '../../components/create-group-dialog/create-group-dialog.component';
 import { SnackbarService } from '../../services/snackbar.service';
 
@@ -32,9 +32,6 @@ export class ChatterGroupViewComponent implements OnInit {
             this.groups = groups;
             this.onGroupSelected(this.groups[0]);
         });
-    }
-    public toggleRightSideBar () {
-        
     }
     public onCreateGroupClicked (): void {
         const dialogRef = this.dialog.open(CreateGroupDialogComponent, {

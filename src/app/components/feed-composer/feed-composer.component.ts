@@ -13,6 +13,7 @@ export class FeedComposerComponent {
     public onPostButtonClick (): void {
         this.feedPostEvent.emit(this.feedContent);
     }
+    
     public clear (): void {
         this.feedContent = "";
     }

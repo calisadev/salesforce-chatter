@@ -13,9 +13,11 @@ export class FeedViewComponent {
     public shouldShowFeedView (): boolean {
         return this.feeds && this.feeds.length > 0;
     }
+
     public isLikedByCurrentUser (feed: Feed): boolean {
         return feed.capabilities.chatterLikes && feed.capabilities.chatterLikes.isLikedByCurrentUser;
     }
+    
     public onPostCommentButtonClicked (feed: Feed): void {
         this.commentPostEvent.emit(feed);
     }

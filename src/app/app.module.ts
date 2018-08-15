@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ChatterGroupViewComponent } from './views/chatter-group-view/chatter-group-view.component';
 import { ChatterLoginViewComponent } from './views/chatter-login-view/chatter-login-view.component';

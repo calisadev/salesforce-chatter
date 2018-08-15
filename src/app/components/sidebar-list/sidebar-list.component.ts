@@ -44,17 +44,23 @@ export class SidebarListComponent implements OnChanges {
         return text.toLowerCase().includes(this.keyword.toLowerCase().trim());
     }
     public onGroupClicked (group: Group): void {
-        this.groups.map((group: Group) => {
-            group.isSelected = false;
-        });
+        this.unselectAllGroup();
         group.isSelected = true;
         this.groupClickEvent.emit(group);
     }
+    private unselectAllGroup (): void {
+        this.groups.map((group: Group) => {
+            group.isSelected = false;
+        });
+    }
     public onConversationClicked (conversation: Conversation): void {
+        this.unselectAllConversation();
+        conversation.isSelected = true;
+        this.conversationClicked.emit(conversation);
+    }
+    private unselectAllConversation (): void {
         this.conversations.map((conversation: Conversation) => {
             conversation.isSelected = false;
         });
-        conversation.isSelected = true;
-        this.conversationClicked.emit(conversation);
     }
 }

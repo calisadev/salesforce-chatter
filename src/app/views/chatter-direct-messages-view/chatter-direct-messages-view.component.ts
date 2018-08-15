@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Conversation, NewConversation } from '../../salesforce/models/Conversation';
+import { Conversation } from '../../salesforce/models/Conversation';
 import { Message } from '../../salesforce/models/Message';
 import { DirectMessageService } from '../../salesforce/services/direct-message.service';
 import { ConversationDetail } from '../../salesforce/models/ConversationDetail';
@@ -8,6 +8,12 @@ import { ChatComposerComponent } from '../../components/chat-composer/chat-compo
 import { SnackbarService } from '../../services/snackbar.service';
 import { MatDialog } from '@angular/material';
 import { CreateConversationDialogComponent } from '../../components/create-conversation-dialog/create-conversation-dialog.component';
+import { User } from '../../salesforce/models/User';
+
+type NewConversation = {
+    users: User[],
+    message: string 
+}
 
 @Component({
     selector: 'app-chatter-direct-messages-view',
@@ -58,12 +64,6 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
             this.snackbarService.showErrorMessage('Failed to create conversation!');
         });
     }
-    private loadConversationDetail (conversationId: string, pageToken: string): void {
-        this.directMessageService.getConversationDetail(conversationId, pageToken).subscribe((conversationDetail: ConversationDetail) => {
-            this.nextPageToken = conversationDetail.messages.nextPageToken;
-            this.messages.unshift(...conversationDetail.messages.messages);
-        });
-    }   
     public onConversationSelected (conversation: Conversation): void {
         this.currentConversation = conversation;
         this.messages = [];
@@ -72,6 +72,12 @@ export class ChatterDirectMessagesViewComponent implements OnInit {
     public onLoadMoreEvent (nextPageToken: string): void {
         this.loadConversationDetail(this.currentConversation.id, nextPageToken);
     }
+    private loadConversationDetail (conversationId: string, pageToken: string): void {
+        this.directMessageService.getConversationDetail(conversationId, pageToken).subscribe((conversationDetail: ConversationDetail) => {
+            this.nextPageToken = conversationDetail.messages.nextPageToken;
+            this.messages.unshift(...conversationDetail.messages.messages);
+        });
+    } 
     public onMessageSend (messageText: string): void {
         this.directMessageService.sendMessage(messageText, this.currentConversation.members).subscribe((message: Message) => {
             if (message && message.id) {

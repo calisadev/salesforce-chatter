@@ -7,11 +7,13 @@ import { ConversationDetail } from '../models/ConversationDetail';
 import { Message } from '../models/Message';
 import { User } from '../models/User';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+
 @Injectable({
     providedIn: 'root'
 })
 export class DirectMessageService {
     private currentUserId: string;
+
     constructor (private baseService: BaseService, private authenticationService: AuthenticationService) {
         this.currentUserId = this.authenticationService.getCurrentUserDetails().id;
     }
@@ -45,7 +47,6 @@ export class DirectMessageService {
         }
         return photoUrls;
     }
-
     public getConversationDetail (conversationId: string, pageToken?: string): Observable<ConversationDetail> {
         let resourcePath = 'users/me/conversations/' + conversationId;
         if (pageToken) {
@@ -63,8 +64,8 @@ export class DirectMessageService {
     }
     private prepareConversationDetailData (conversationDetail: ConversationDetail): ConversationDetail {
         conversationDetail.messages.messages.map(this.prepareMessageData.bind(this));
-        conversationDetail.messages.messages = conversationDetail.messages.messages.sort((a: Message, b: Message): number => {
-            return a.sentDatetime > b.sentDatetime ? 1 : -1;
+        conversationDetail.messages.messages = conversationDetail.messages.messages.sort((firstMessage: Message, secondMessage: Message): number => {
+            return new Date(firstMessage.sentDatetime) > new Date(secondMessage.sentDatetime) ? 1 : -1;
         });
         return conversationDetail;
     }
