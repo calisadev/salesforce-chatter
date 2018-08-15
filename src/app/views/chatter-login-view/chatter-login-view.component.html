@@ -1,0 +1,16 @@
+<div class="login-container">
+    <mat-card class="login-panel" color="primary">
+        <mat-card-title>
+            <h1 class='welcome-text'>Welcome to Chatter!</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+            <h3 class='welcome-text'>{{instruction}}</h3>
+        </mat-card-subtitle>
+        <div class="login-image-container" >
+            <img src="assets/user.png">
+        </div>
+        <div class="login-button-container">
+            <button mat-raised-button class="login-button" mat-button (click)="onLoginClicked()">Login with Salesforce</button>
+        </div>
+    </mat-card>
+</div>

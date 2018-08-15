@@ -1,0 +1,11 @@
+.create-conversation-form {
+    width: 100%;
+}
+.create-conversation-dialog-actions {
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+}
+.user-chip-list {
+    width: 100%;
+}

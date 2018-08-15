@@ -1,0 +1,6 @@
+<mat-card class="chat-composer-container">
+    <mat-form-field class="chat-composer-form" appearance="outline">
+        <mat-label>Your message here</mat-label>
+        <textarea [(ngModel)]="message" class="chat-composer-textarea" (keydown)="onKeyDown($event)" rows="2" matInput></textarea>
+    </mat-form-field>
+</mat-card>
