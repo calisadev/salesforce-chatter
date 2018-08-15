@@ -1,0 +1,30 @@
+.sidebar-group-item {
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: stretch;
+    border-radius: 5px;
+}
+.sidebar-group-item.selected {
+    background-color: darkgray;
+}
+.sidebar-group-item-photo {
+    height:50px;
+    border-radius: 50%;
+}
+.sidebar-group-item-details {
+    margin-left: 10px;
+}
+.sidebar-group-item-details p {
+    margin: 0px;
+}
+.sidebar-group-item-details h4 {
+    margin: 0px;
+}
+.sidebar-detail-text {
+    font-size: 14px;
+}
+

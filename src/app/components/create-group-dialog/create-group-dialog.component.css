@@ -1,0 +1,8 @@
+.create-group-form {
+    width: 100%;
+}
+.create-group-dialog-actions {
+    text-align: right;
+    width: 100%;
+    display: inline-block;
+}
