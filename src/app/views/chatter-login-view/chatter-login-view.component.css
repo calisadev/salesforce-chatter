@@ -1,0 +1,32 @@
+.login-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    background-image: url("/assets/bridge.jpg");
+    background-size: cover;
+}
+
+.login-panel {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+.welcome-text {
+    color: white;
+}
+.login-panel img {
+    height: 100px;
+    width: 100px;
+    margin: 50px;
+}
+.login-panel .login-button-container {
+    text-align: center
+}
+.login-image-container, .login-button-container {
+    display: block;
+}
