@@ -1,0 +1,37 @@
+.sidebar-list {
+    height: 100%;
+    width: 300px;
+    background-color: aliceblue;
+    padding: 10px;
+}
+.sidebar-list-search-form {
+    width: 100%;
+    
+}
+:host /deep/ .sidebar-list-search-form .mat-form-field-wrapper {
+    padding-bottom: 10px;
+    margin: 0px;
+}
+.sidebar-item {
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: stretch;
+    border-radius: 5px;
+}
+.sidebar-item-photo {
+    height:50px;
+    border-radius: 50%;
+}
+.sidebar-item-details {
+    margin-left: 10px;
+}
+.sidebar-item-details p {
+    margin: 0px;
+}
+.sidebar-item-details h4 {
+    margin: 0px;
+}
