@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="main-menu-bar">
+        <img src="assets/logo.png" height="30" >
+        <nav>
+            <button mat-button class="main-logo" routerLink="/groups"><h2>Chatter</h2></button>
+        </nav>
+        <nav *ngIf="isLoggedIn">
+            <button mat-button class="menu-list-button" routerLink="/groups">Groups</button>
+        </nav>
+        <nav *ngIf="isLoggedIn">
+            <button mat-button class="menu-list-button" routerLink="/direct-messages">Direct Messages</button>
+        </nav>
+        <span class="fill-remaining-space"></span>
+        <nav *ngIf="isLoggedIn">
+            <button mat-button class="menu-list-button" routerLink="/logout">Log out</button>
+        </nav>
+        <img class="main-menu-avatar" *ngIf="isLoggedIn" src="{{currentUserDetails.photo.fullEmailPhotoUrl}}" height="40" >
+    </mat-toolbar-row>
+</mat-toolbar>

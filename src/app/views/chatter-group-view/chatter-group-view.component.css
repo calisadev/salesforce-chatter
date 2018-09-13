@@ -1,0 +1,10 @@
+.sidenav-container {
+    height: calc(100% - 128px);
+    background-color: aliceblue;
+}
+.left-sidebar {
+    background-color: aliceblue;
+}
+.right-sidebar {
+    width: 350px;
+}
